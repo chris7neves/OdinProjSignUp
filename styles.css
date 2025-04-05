@@ -1,0 +1,36 @@
+/* Make the max width of the div containing the image to be the max width of the image itself. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    display: flex;
+}
+
+.image-side { /* Should preferably not stretch the width of the image and match the aspect ratio of the divs width. */
+    display: flex;
+    height: 100vh;
+    /* width: calc(100vh * (1862/2792)); */
+    width: 28vw;
+    border: 2px solid red;
+    background-image: url(./assets/fern-img.jpg);
+    background-color: green;
+    background-size: cover;
+}
+
+.signup-side {
+    height: 100vh;
+    border: 2px solid black;
+}
+
+/* .image-side img {
+    width: 100%;
+} */
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+}
