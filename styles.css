@@ -53,9 +53,20 @@
     border: 2px solid black;
 }
 
-
+.form-panel {
+    box-shadow: 0 10px 5px gray;
+    display: flex;
+    border: 2px solid black;
+}
 
 .form-col {
     display: flex;
     flex-direction: column;
 }
+
+.form-group {
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid blue;
+}
+
