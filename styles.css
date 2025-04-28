@@ -1,24 +1,35 @@
+@font-face {
+    font-family: Norse;
+    font-weight: bold;
+    src: url(./fonts/Norse-Bold.otf) format("opentype");
+}
+
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     font-family: "Anuphan";
+}
+
+:root {
+    --singup-margin-left: 50px;
+    --image-side-width: calc(100vh * (1862/2792));
 }
 
 .main-container {
     display: flex;
+    width: 100%;
 }
 
 .image-side { /* Should preferably not stretch the width of the image and match the aspect ratio of the divs width. */
     display: flex;
     height: 100vh;
-    width: calc(100vh * (1862/2792));
-    border: 2px solid red;
+    width: var(--image-side-width); /* Maintaining aspect ratio. */
     background-image: url(./assets/fern-img.jpg);
     background-color: green;
     background-size: cover;
     position: relative;
-    /* z-index: -1; */
+}
+
+.image-side h2 {
+    font-family: "Norse";
 }
 
 .image-side p {
@@ -30,14 +41,19 @@
     margin-top: auto;
 }
 
+.image-side p > a {
+    color: white;
+}
+
 .logo-banner {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 20vh; /* Maybe make this relative to the aspect ratio of the odin proj logo */
+    height: 20vh;
     background-color: rgb(0 0 0 / .8);
     position: absolute;
     top: 30%;
+    padding: 15px;
 }
 
 .logo-banner h2 {
@@ -49,21 +65,43 @@
 
 .signup-side {
     height: 100vh;
-    border: 2px solid black;
+    width: calc(100% - var(--image-side-width));
 }
 
-.signup-side > form {
-    box-shadow: 0 10px 5px gray;
-    border: 2px solid black;
+#call-to-action {
+    margin-left: var(--singup-margin-left);
+    margin-top: 3vh;
+    font-weight: 600;
 }
 
-.signup-side > form > h2 {
-    margin-left: 10px;
-    font-weight: 200;
+.signup-side > p {
+    margin-left: var(--singup-margin-left);
+}
+
+#description {
+    margin: 14vh 0 3vh var(--singup-margin-left);
+    font-size: larger;
+    font-weight: 700;
+    width: 50vw;
+}
+
+#egg-on {
+    font-size: larger;
+    font-weight: 700;
+    margin-bottom: 8vh;
+}
+
+.signup-side > p > a {
+    color: #596D48;
+    text-decoration: none;
 }
 
 .form-panel {
     display: flex;
+    box-shadow: 0px 5px 3px rgb(170, 170, 170, 0.05), 0px 10px 15px rgb(170, 170, 170, 0.2);
+    padding: 20px 0px 30px var(--singup-margin-left);
+    column-gap: 8%;
+    width: 100%;
 }
 
 .form-col {
@@ -72,24 +110,42 @@
 }
 
 .form-group {
-    margin: 5px 10px 5px 10px;
+    margin: 5px 10px 5px 0px;
     display: flex; 
     flex-direction: column;
 }
 
+.submit-btn {
+    background-color: #596D48;
+    color: white;
+    width: 200px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 3px rgb(200, 200, 200, 0.80);
+    font-size: medium;
+    font-weight: 500;
+    margin: 30px 0px 30px var(--singup-margin-left);
+}
 
-.form-group > input[type="text"] {
+.submit-btn:active {
+    transform: translateY(2px) translateX(2px);
+}
+
+.submit-btn:hover {
+    background-color: #8dac72;
+    cursor: pointer;
+}
+
+.form-group > input {
     border: 1px solid #E5E7EB;
     border-radius: 3px;
+    width: 16rem;
+    height: 28px;
 }
 
-
-.form-group > input[type="text"]:focus {
+.form-group > input:focus {
     border: 1px solid rgb(48, 84, 161);
+    box-shadow: 2px 2px 3px rgb(200, 200, 200, 0.80);
     outline: none;
 }
-
-/* .form-group > input[type="text"]:focus-visible {
-    border: 1px solid rgb(48, 84, 161);
-    outline: none;
-} */
